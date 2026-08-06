@@ -220,96 +220,104 @@
    ===================================================================== */
 const SINSS_CASE = {
   meta: {
-    number: "S1",
+    number: "S3",
     kicker: "PTA Clinical Reasoning · SINSS",
-    title: "Ankle That Got Ahead of Itself",
-    lede: "You're the PTA carrying out an established plan of care. Read the note, interview the patient to determine their status today, then choose only the interventions that fit — and catch anyt[...]",
+    title: "Left Shoulder That Can’t Keep Up Overhead",
+    lede: "You are the PTA carrying out an established plan of care. Review the chart, interview the patient, classify today’s status using SINSS, then select only the interventions that fit this visit.",
     duration: "~8 minutes · interview · classify · treat",
-    patient: { initials: "TM", name: "Tara Molina", subtitle: "24 · recreational basketball" }
+    patient: { initials: "MR", name: "Melissa Robles", subtitle: "49 · dental hygienist" }
   },
 
   poc: {
-    label: "Plan of Care · initial eval 4 days ago",
-    dx: "Right lateral ankle sprain (ATFL/CFL), grade II",
+    label: "Plan of Care · initial eval 3 months into onset",
+    dx: "Left rotator cuff tendinopathy (supraspinatus)",
     fields: [
-      { lab: "Mechanism", val: "Inversion injury landing from a jump, 6 days ago." },
-      { lab: "Subjective", val: "Pain 6/10 with weight-bearing at eval; difficulty on stairs; goal is return to basketball." }
+      { lab: "Mechanism", val: "Gradual onset from repetitive overhead work as a dental hygienist; symptoms present for 3 months." },
+      { lab: "Subjective", val: "Pain 3/10 baseline and up to 7/10 with overhead activity; difficulty with overhead reach and lifting groceries; goal is pain-free work duties including reaching and stooping." }
     ],
     objective: [
-      "Edema: figure-8 girth +2.5 cm vs left",
-      "AROM: dorsiflexion & inversion limited by pain",
-      "MMT: peroneals 4/5 (pain-limited), dorsiflexors 4/5",
-      "Special tests: anterior drawer positive; Ottawa ankle rules negative (no bony tenderness)",
-      "Balance: single-leg stance R < 5 sec",
-      "Gait: antalgic, reduced R stance time, using one crutch"
+      "ROM: shoulder flexion L 145° with painful arc, R 160°",
+      "MMT: supraspinatus L 4−/5, R 5/5",
+      "Special tests: Hawkins-Kennedy, Neer, and Empty Can positive on L",
+      "Movement: scapular dyskinesis with excessive scapular elevation during abduction",
+      "Palpation: supraspinatus tendon tenderness",
+      "Muscle length: pec minor limited",
+      "Accessory motion: GH posterior glide hypomobile L, normal R"
     ],
-    stg: ["↓ edema, pain < 3/10 with WB, AROM ≥ 80% of left, ambulate without crutch — 2 wks"],
-    ltg: ["Return to full basketball; single-leg balance 30 sec; negative functional hop tests — 6 wks"],
+    stg: [
+      "Full, pain-free shoulder flexion and abduction as needed for return to work — 2 wks",
+      "Improve scapular control as needed for work as dental hygienist — 2 wks",
+      "ER strength B 5/5 as needed for reaching tasks — 2 wks"
+    ],
+    ltg: [
+      "Pain-free overhead reach — 6 wks",
+      "Full work duties — 6 wks",
+      "Supraspinatus strength 5/5 — 6 wks"
+    ],
     plan: [
-      "Edema management: cryotherapy, compression, elevation",
-      "Pain-free AROM/PROM",
-      "Isometrics → progressive resisted eversion/dorsiflexion (theraband)",
-      "Proprioception: single-leg balance → unstable surface",
-      "Gait training to wean crutch",
-      "Progress to plyometric / agility drills as tolerated"
+      "Therapeutic Exercise to strengthen rotator cuff and scapular stabilizers",
+      "Manual Therapy to improve GH joint mobility and reduce soft tissue tension",
+      "Therapeutic Activity to retrain functional overhead reaching",
+      "Neuromuscular Reeducation to improve scapular motor control",
+      "Ultrasound to reduce tendon irritability"
     ]
   },
 
   interview: [
-    { dim:"Severity",   q:"How would you rate your pain right now, and at its worst today?", a:"“Sitting here, maybe a 4. When I'm up walking on it, it climbs to about a 6.”" },
-    { dim:"Irritability", q:"When it flares up, how long does it take to settle back down?", a:"“Pretty quick to hurt once I'm on it — and then it aches for a couple of hours even after I sit[...]" },
-    { dim:"Irritability", q:"Has anything set it off recently?", a:"“Honestly, I tried to jog on it at the weekend. Felt okay during, but it's been more swollen and sore since.”" },
-    { dim:"Nature",     q:"How would you describe the pain — and any numbness, tingling, or shooting?", a:"“It's a deep ache right around the outside of the ankle. No pins and needles, nothing sho[...]" },
-    { dim:"Stability",  q:"Compared with last week, is it better, the same, or worse?", a:"“It was steadily getting better… until the jog. Since then it's gone backwards a bit.”" },
-    { dim:"Stage",      q:"Remind me exactly when the injury happened?", a:"“Six days ago, in my Sunday league game.”" },
-    { dim:"Screen",     q:"Any new numbness, giving way, or trouble putting weight through it at all?", a:"“No giving way, and I can bear weight — it just complains when I do too much.”" }
+    { dim:"Severity", q:"How would you rate your pain at rest and when you reach overhead at work?", a:"“At rest it sits around a 3. Reaching overhead at work can spike it to about a 7.”" },
+    { dim:"Irritability", q:"When it flares with overhead tasks, how quickly is it provoked and how long does it take to settle?", a:"“It comes on pretty quickly once I’m working overhead, and it can stay irritated for a while after my shift.”" },
+    { dim:"Nature", q:"How would you describe the pain? Any numbness, tingling, or symptoms below the elbow?", a:"“It’s an ache at the top and side of my left shoulder. No tingling or numbness down the arm.”" },
+    { dim:"Stability", q:"Over the last few weeks, is your shoulder improving, staying the same, or worsening?", a:"“It’s been pretty much the same overall — still bothers me with overhead work.”" },
+    { dim:"Stage", q:"How long has this been going on now?", a:"“About three months.”" },
+    { dim:"Function", q:"Which daily activities are most limited right now?", a:"“Reaching overhead and lifting groceries are the biggest problems.”" },
+    { dim:"Movement", q:"Do you notice shoulder hiking or compensation when you raise your arm?", a:"“Yes, I feel like I shrug my shoulder up to get my arm overhead.”" }
   ],
 
   sinss: [
-    { letter:"S", key:"Severity", prompt:"How severe is the pain right now?",
-      options:["Mild (0–3/10)","Moderate (4–6/10)","Severe (7–10/10)"], correct:"Moderate (4–6/10)",
-      why:"4/10 at rest and 6/10 with weight-bearing sits squarely in the moderate band. Severity is about intensity — irritability captures how easily it's provoked." },
-    { letter:"I", key:"Irritability", prompt:"How irritable is the condition?",
-      options:["Low","Moderate","High"], correct:"High",
-      why:"Pain comes on quickly with activity and takes a couple of hours to settle — and it flared after a single jog. Quick to provoke, slow to settle, easily stirred up: that's high irritab[...]" },
-    { letter:"N", key:"Nature", prompt:"What is the nature of the pain?",
+    { letter:"S", key:"Severity", prompt:"How severe is her condition based on current pain behavior?",
+      options:["Low","Moderate","High"], correct:"Moderate",
+      why:"Baseline pain is 3/10, but overhead pain reaches 7/10. The presentation is not constantly severe, but pain intensity during key tasks is clearly meaningful, supporting a moderate severity classification." },
+    { letter:"I", key:"Irritability", prompt:"How irritable is the shoulder today?",
+      options:["Low","Moderate","High"], correct:"Moderate",
+      why:"Symptoms are provoked reliably with overhead demands and do not settle immediately, but they are tied to load-specific activity rather than minimal movement at rest. This best fits moderate irritability." },
+    { letter:"N", key:"Nature", prompt:"What is the dominant pain mechanism?",
       options:["Nociceptive","Neuropathic","Nociplastic"], correct:"Nociceptive",
-      why:"A localised, mechanical ache tied to tissue loading, with no neuro symptoms and a clear recent injury, is nociceptive — the expected picture for an acute sprain." },
+      why:"Local shoulder pain linked to mechanical loading, tendon tenderness, painful arc, and positive impingement/rotator cuff tests support a nociceptive tendon-related presentation without neuro features." },
     { letter:"S", key:"Stability", prompt:"How is the condition progressing?",
-      options:["Improving","Same","Worsening"], correct:"Worsening",
-      why:"It had been improving, but the weekend jog set it back — more swelling and pain since. Right now the trajectory is worsening, which is a change worth reporting before you push the pl[...]" },
-    { letter:"S", key:"Stage", prompt:"What stage is the condition?",
-      options:["Acute (1–14 days)","Subacute (2–6 wks)","Chronic (> 6 wks)"], correct:"Acute (1–14 days)",
-      why:"Six days since injury places this firmly in the acute stage — tissue is still early in healing, which reinforces a protective, lower-load approach today." }
+      options:["Improving","Same","Worsening"], correct:"Same",
+      why:"She reports persistent, similar provocation with work tasks over recent weeks rather than clear trend up or down, so current stability is best classified as unchanged." },
+    { letter:"S", key:"Stage", prompt:"What stage is this condition?",
+      options:["Acute (1–14 days)","Subacute (2–6 wks)","Chronic (> 6 wks)"], correct:"Chronic (> 6 wks)",
+      why:"Symptoms have been present for 3 months, placing this case well beyond 6 weeks in the chronic stage." }
   ],
 
   interventions: {
-    prompt: "Given her status today — moderate severity, high irritability, worsening after the weekend — select only the interventions appropriate for this visit.",
+    prompt: "Given her status today — moderate severity/irritability, chronic stage, and unchanged function with overhead work — select the interventions that are appropriate for this visit.",
     items: [
-      { label:"Cryotherapy, compression, and elevation for edema", verdict:"perform",
-        why:"Directly addresses the fresh swelling from the flare and is low-load. Appropriate for an acute, irritable, recently aggravated ankle." },
-      { label:"Pain-free active range of motion", verdict:"perform",
-        why:"Gentle, within-tolerance motion maintains mobility without provoking an irritable joint. Keep it strictly pain-free today." },
-      { label:"Submaximal, pain-free isometrics", verdict:"perform",
-        why:"Low-load muscle activation the tissue can tolerate at this stage — appropriate given high irritability." },
-      { label:"Patient education: relative rest, hold off on jogging", verdict:"perform",
-        why:"The flare came from returning to impact too soon. Correcting that is one of the most valuable things you can do today." },
-      { label:"Notify the supervising PT of the worsening status before progressing", verdict:"report",
-        why:"Correct. A worsening trajectory is a significant change in status — report it and get direction before advancing the plan, rather than pushing ahead on your own." },
-      { label:"Progress to heavier resisted / eccentric theraband work", verdict:"hold",
-        why:"This is in the plan's progression, but not for today. Higher-load resistance on a highly irritable, worsening acute ankle is likely to flare it further." },
-      { label:"Advance balance training to an unstable/foam surface", verdict:"hold",
-        why:"Too much, too soon. Advancing proprioceptive challenge belongs at lower irritability and an improving trajectory, not today." },
-      { label:"Begin plyometric and agility (hopping, cutting) drills", verdict:"hold",
-        why:"Impact and cutting on an acute, high-irritability ankle that just regressed is the exact loading that caused the setback. Clearly inappropriate for this visit." }
+      { label:"Progressive rotator cuff loading (pain-monitored), including ER and scaption as tolerated", verdict:"perform",
+        why:"This directly addresses supraspinatus and cuff capacity deficits and aligns with chronic tendinopathy management when symptoms are monitored." },
+      { label:"Scapular stabilization and neuromuscular re-education to reduce excessive elevation during abduction", verdict:"perform",
+        why:"Targeting scapular motor control addresses the observed dyskinesis and can improve movement efficiency during overhead tasks." },
+      { label:"Manual therapy: GH posterior glide mobilization and soft tissue work for pec minor/supraspinatus region", verdict:"perform",
+        why:"This matches exam findings of posterior glide hypomobility and soft tissue restriction/tenderness, and can support improved mechanics." },
+      { label:"Functional overhead reaching retraining with graded exposure", verdict:"perform",
+        why:"Task-specific progression is needed for return to pain-free work duties involving repetitive reaching." },
+      { label:"Ultrasound as adjunct for tendon irritability while active program continues", verdict:"perform",
+        why:"It is included in the established plan and may help calm symptoms enough to maintain active loading and motor retraining." },
+      { label:"Heavy overhead loading to fatigue despite pain reproduction", verdict:"hold",
+        why:"Overloading into significant pain can worsen tendon irritability and movement compensation; load should be graded and symptom-guided." },
+      { label:"Complete rest from all shoulder movement for 2 weeks", verdict:"hold",
+        why:"Full immobilization is not indicated here and would likely reduce capacity; controlled, progressive loading is preferred." },
+      { label:"Document status and communicate lack of progress to supervising PT for possible plan progression/modification", verdict:"report",
+        why:"An unchanged 3-month presentation with ongoing occupational limits is clinically important and should be communicated for coordinated plan updates." }
     ]
   },
 
   expert: {
     heading: "How the reasoning fits together",
     paragraphs: [
-      "The plan of care isn't wrong — it's a sound progression. The skill is recognising that a written plan describes the <em>arc</em>, while SINSS tells you where the patient is <em>today</em>. He[...]",
-      "Irritability is the value that most directly governs dosage: high irritability means less provocation, lower load, pain-free only. Pair that with an acute, worsening status and the aggressive i[...]"
+      "This case is chronic and load-sensitive, not acutely inflammatory from a single recent trauma. That means your session should emphasize <em>graded capacity building</em>, not either complete unloading or aggressive painful overload.",
+      "SINSS helps dose the visit: moderate severity/irritability supports active strengthening, motor control, and functional retraining with symptom monitoring. Pair this with targeted manual therapy for measured impairments, and communicate unchanged status so the supervising PT can refine progression if needed."
     ]
   }
 };
