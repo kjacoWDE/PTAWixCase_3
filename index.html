@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SINSS Clinical Reasoning</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
   :root{
     --paper:#F6F7F4;--ink:#1C2A2F;--muted:#6E7B74;--line:#E2E6DF;--surface:#FFFFFF;
@@ -34,14 +36,11 @@
   .btn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
   .start-row{margin-top:28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
   .start-row .meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted)}
-
-  /* progress rail */
   .rail{display:flex;gap:8px;margin-top:26px;flex-wrap:wrap}
   .rail .seg{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
     color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 13px;background:var(--surface)}
   .rail .seg.on{background:var(--teal);color:#fff;border-color:var(--teal)}
   .rail .seg.done{background:var(--teal-soft);color:var(--teal-deep);border-color:var(--teal-soft)}
-
   .stage{display:grid;grid-template-columns:1fr 340px;gap:26px;margin-top:24px;align-items:start}
   @media(max-width:860px){.stage{grid-template-columns:1fr}}
   .scene{background:var(--surface);border:1px solid var(--line);border-radius:18px;
@@ -49,8 +48,6 @@
   .phase-tag{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
   .phase-title{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(20px,3vw,27px);line-height:1.15;margin-top:8px}
   .phase-sub{color:var(--muted);font-size:14.5px;margin-top:10px;max-width:56ch}
-
-  /* POC note */
   .note{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:22px}
   .note-head{background:var(--teal-deep);color:#EAF1EE;padding:14px 18px;font-family:"IBM Plex Mono",monospace;
     font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -62,8 +59,6 @@
     text-transform:uppercase;color:var(--muted);padding-top:2px}
   .note-row .val{flex:1}
   .note-row .val ul{margin:0;padding-left:18px} .note-row .val li{margin:2px 0}
-
-  /* interview */
   .qgrid{display:grid;gap:10px;margin-top:20px}
   .qbtn{text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:14px 16px;
     font-size:14.5px;font-family:inherit;color:var(--ink);cursor:pointer;transition:border-color .16s,background .16s;
@@ -72,8 +67,6 @@
   .qbtn:disabled{opacity:.5;cursor:default;background:var(--surface)}
   .qbtn .dim{display:none; font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
     color:var(--teal);flex:0 0 auto}
-
-  /* SINSS segmented */
   .sinss-q{margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
   .sinss-q:first-child{border-top:none;padding-top:0;margin-top:12px}
   .sinss-q .letter{font-family:"Fraunces",serif;font-weight:600;font-size:15px;color:var(--teal-deep);
@@ -92,8 +85,6 @@
   .why.good{background:var(--teal-soft);color:var(--teal-deep)}
   .why.bad{background:var(--alert-soft);color:#7a3418}
   .why .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px;opacity:.8}
-
-  /* interventions */
   .ivlist{display:grid;gap:10px;margin-top:20px}
   .iv{display:flex;gap:13px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);
     border-radius:11px;padding:14px 16px;cursor:pointer;transition:border-color .15s,background .15s}
@@ -109,8 +100,6 @@
   .iv .verdict{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
     margin-top:7px;display:block}
   .iv .fb{font-size:13px;color:var(--ink);margin-top:6px;line-height:1.45}
-
-  /* side chart */
   .chart{position:sticky;top:24px;display:grid;gap:16px}
   @media(max-width:860px){.chart{position:static}}
   .panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 18px 20px;box-shadow:var(--shadow)}
@@ -133,8 +122,6 @@
   .sinss-read .r .rk{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
   .sinss-read .r .rv{font-weight:600;color:var(--teal-deep)}
   .sinss-read .r .rv.blank{color:#C0C8C3;font-weight:400;font-style:italic}
-
-  /* debrief */
   .verdict{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(22px,4vw,36px);box-shadow:var(--shadow)}
   .verdict h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(23px,4vw,32px);line-height:1.12;margin-top:6px}
   .score-strip{display:flex;gap:26px;flex-wrap:wrap;margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
@@ -144,16 +131,15 @@
   .expert h3{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9DC3BC;margin-bottom:14px}
   .expert p{font-size:15px;line-height:1.62;max-width:64ch} .expert p+p{margin-top:12px}
   .expert em{font-style:italic;border-bottom:1px solid #4C736E}
-
   .footer{margin-top:34px;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;color:var(--muted)}
   @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
   .hidden{display:none!important}
 </style>
 </head>
+
 <body>
 <div class="wrap">
-
   <section id="intro">
     <div class="eyebrow"><span class="tick"></span><span id="i-kicker"></span></div>
     <h1 id="i-title"></h1>
@@ -189,7 +175,6 @@
       </aside>
     </div>
   </section>
-
   <section id="debrief" class="hidden">
     <div class="eyebrow"><span class="tick"></span>Session Debrief</div>
     <div class="verdict" style="margin-top:18px">
@@ -197,7 +182,6 @@
       <div class="score-strip">
         <div class="score-item"><div id="d-sinss" class="n"></div><div class="l">SINSS correct</div></div>
         <div class="score-item"><div id="d-iv" class="n"></div><div class="l">Interventions correct</div></div>
-        <div class="score-item"><div id="d-flag" class="n"></div><div class="l">Change reported</div></div>
       </div>
     </div>
     <div class="expert">
@@ -209,126 +193,210 @@
       <button class="btn ghost" onclick="toIntro()">Back to start</button>
     </div>
   </section>
-
   <div class="footer" id="foot"></div>
 </div>
-
 <script>
-/* =====================================================================
-   ▼▼▼  CASE START — replace this object to build a new SINSS case.
-        Ortho scenarios only (no neuro) for this student group.
-   ===================================================================== */
 const SINSS_CASE = {
-  meta: {
-    number: "S3",
-    kicker: "PTA Clinical Reasoning · SINSS",
-    title: "Left Shoulder That Can’t Keep Up Overhead",
-    lede: "You are the PTA carrying out an established plan of care. Review the chart, interview the patient, classify today’s status using SINSS, then select only the interventions that fit this visit.",
-    duration: "~8 minutes · interview · classify · treat",
-    patient: { initials: "MR", name: "Melissa Robles", subtitle: "49 · dental hygienist" }
+  "meta": {
+    "number": "S3",
+    "kicker": "PTA Clinical Reasoning · SINSS",
+    "title": "Rotator Cuff Tendinopathy - Dental Hygienist",
+    "lede": "You're the PTA treating a dental hygienist with three months of left shoulder pain. Interview her to determine today's SINSS profile, then select treatments that improve capacity without provoking the painful arc.",
+    "duration": "~10 minutes · interview · classify · treat",
+    "patient": {
+      "initials": "MR",
+      "name": "Melissa Robles",
+      "subtitle": "49 · dental hygienist"
+    }
   },
-
-  poc: {
-    label: "Plan of Care · initial eval 3 months into onset",
-    dx: "Left rotator cuff tendinopathy (supraspinatus)",
-    fields: [
-      { lab: "Mechanism", val: "Gradual onset from repetitive overhead work as a dental hygienist; symptoms present for 3 months." },
-      { lab: "Subjective", val: "Pain 3/10 baseline and up to 7/10 with overhead activity; difficulty with overhead reach and lifting groceries; goal is pain-free work duties including reaching and stooping." }
+  "poc": {
+    "label": "Plan of Care · initial evaluation",
+    "dx": "Left rotator cuff tendinopathy",
+    "fields": [
+      {
+        "lab": "Mechanism",
+        "val": "Gradual onset from repetitive overhead work; 3 months."
+      },
+      {
+        "lab": "Subjective",
+        "val": "Pain 3/10 baseline, 7/10 overhead; difficulty with overhead reach and lifting groceries; goal is pain-free work duties."
+      }
     ],
-    objective: [
+    "objective": [
       "ROM: shoulder flexion L 145° with painful arc, R 160°",
-      "MMT: supraspinatus L 4−/5, R 5/5",
-      "Special tests: Hawkins-Kennedy, Neer, and Empty Can positive on L",
+      "MMT: supraspinatus L 4/5, R 5/5",
+      "Special tests: Hawkins-Kennedy, Neer, Empty Can positive L",
       "Movement: scapular dyskinesis with excessive scapular elevation during abduction",
       "Palpation: supraspinatus tendon tenderness",
-      "Muscle length: pec minor limited",
+      "MLT: pec minor limited",
       "Accessory motion: GH posterior glide hypomobile L, normal R"
     ],
-    stg: [
-      "Full, pain-free shoulder flexion and abduction as needed for return to work — 2 wks",
-      "Improve scapular control as needed for work as dental hygienist — 2 wks",
-      "ER strength B 5/5 as needed for reaching tasks — 2 wks"
+    "stg": [
+      "Full, pain-free shoulder flexion and abduction as needed for return to work",
+      "Improve scapular control as needed for work as dental hygienist",
+      "ER strength B 5/5 as needed for reaching tasks"
     ],
-    ltg: [
-      "Pain-free overhead reach — 6 wks",
-      "Full work duties — 6 wks",
-      "Supraspinatus strength 5/5 — 6 wks"
+    "ltg": [
+      "Pain-free overhead reach",
+      "Full work duties",
+      "Supraspinatus strength 5/5"
     ],
-    plan: [
+    "plan": [
       "Therapeutic Exercise to strengthen rotator cuff and scapular stabilizers",
-      "Manual Therapy to improve GH joint mobility and reduce soft tissue tension",
+      "Manual Therapy to improve GH joint mobility and reduce soft-tissue tension",
       "Therapeutic Activity to retrain functional overhead reaching",
       "Neuromuscular Reeducation to improve scapular motor control",
       "Ultrasound to reduce tendon irritability"
     ]
   },
-
-  interview: [
-    { dim:"Severity", q:"How would you rate your pain at rest and when you reach overhead at work?", a:"“At rest it sits around a 3. Reaching overhead at work can spike it to about a 7.”" },
-    { dim:"Irritability", q:"When it flares with overhead tasks, how quickly is it provoked and how long does it take to settle?", a:"“It comes on pretty quickly once I’m working overhead, and it can stay irritated for a while after my shift.”" },
-    { dim:"Nature", q:"How would you describe the pain? Any numbness, tingling, or symptoms below the elbow?", a:"“It’s an ache at the top and side of my left shoulder. No tingling or numbness down the arm.”" },
-    { dim:"Stability", q:"Over the last few weeks, is your shoulder improving, staying the same, or worsening?", a:"“It’s been pretty much the same overall — still bothers me with overhead work.”" },
-    { dim:"Stage", q:"How long has this been going on now?", a:"“About three months.”" },
-    { dim:"Function", q:"Which daily activities are most limited right now?", a:"“Reaching overhead and lifting groceries are the biggest problems.”" },
-    { dim:"Movement", q:"Do you notice shoulder hiking or compensation when you raise your arm?", a:"“Yes, I feel like I shrug my shoulder up to get my arm overhead.”" }
+  "interview": [
+    {
+      "dim": "Severity",
+      "q": "How would you rate the shoulder pain at rest and when you reach overhead?",
+      "a": "It's about 3/10 at rest, but it can reach 7/10 when I work overhead or lift groceries."
+    },
+    {
+      "dim": "Irritability",
+      "q": "How easily does it flare, and how long does it take to settle?",
+      "a": "It takes about 30 minutes of repeated overhead work to build into a clear flare. After I lower my arm and rest, it takes about 30 minutes to return to baseline."
+    },
+    {
+      "dim": "Nature",
+      "q": "How would you describe the pain—aching, burning, tingling, or numbness?",
+      "a": "It's a localized ache at the outer shoulder with a sharper catch in the painful arc. I don't have tingling or numbness."
+    },
+    {
+      "dim": "Stability",
+      "q": "Over the last few weeks, is it improving, staying the same, or worsening?",
+      "a": "It has been about the same. Work still brings it on, and I haven't noticed a clear change."
+    },
+    {
+      "dim": "Stage",
+      "q": "How long has this shoulder problem been present?",
+      "a": "It came on gradually about three months ago."
+    },
+    {
+      "dim": "Screen",
+      "q": "Any recent trauma, neck pain, arm numbness, fever, or unexplained weakness?",
+      "a": "No trauma, fever, or numbness. The weakness mainly shows up when the shoulder hurts overhead."
+    }
   ],
-
-  sinss: [
-    { letter:"S", key:"Severity", prompt:"How severe is her condition based on current pain behavior?",
-      options:["Low","Moderate","High"], correct:"Moderate",
-      why:"Baseline pain is 3/10, but overhead pain reaches 7/10. The presentation is not constantly severe, but pain intensity during key tasks is clearly meaningful, supporting a moderate severity classification." },
-    { letter:"I", key:"Irritability", prompt:"How irritable is the shoulder today?",
-      options:["Low","Moderate","High"], correct:"Moderate",
-      why:"Symptoms are provoked reliably with overhead demands and do not settle immediately, but they are tied to load-specific activity rather than minimal movement at rest. This best fits moderate irritability." },
-    { letter:"N", key:"Nature", prompt:"What is the dominant pain mechanism?",
-      options:["Nociceptive","Neuropathic","Nociplastic"], correct:"Nociceptive",
-      why:"Local shoulder pain linked to mechanical loading, tendon tenderness, painful arc, and positive impingement/rotator cuff tests support a nociceptive tendon-related presentation without neuro features." },
-    { letter:"S", key:"Stability", prompt:"How is the condition progressing?",
-      options:["Improving","Same","Worsening"], correct:"Same",
-      why:"She reports persistent, similar provocation with work tasks over recent weeks rather than clear trend up or down, so current stability is best classified as unchanged." },
-    { letter:"S", key:"Stage", prompt:"What stage is this condition?",
-      options:["Acute (1–14 days)","Subacute (2–6 wks)","Chronic (> 6 wks)"], correct:"Chronic (> 6 wks)",
-      why:"Symptoms have been present for 3 months, placing this case well beyond 6 weeks in the chronic stage." }
+  "sinss": [
+    {
+      "letter": "S",
+      "key": "Severity",
+      "prompt": "How severe is the pain today?",
+      "options": [
+        "Low (0-3/10)",
+        "Moderate (4–6/10)",
+        "High (7–10/10)"
+      ],
+      "correct": "High (7–10/10)",
+      "why": "Her pain reaches 7/10 during the overhead activity required for work, placing peak severity in the high category. The 3/10 resting level does not erase the clinically important activity pain."
+    },
+    {
+      "letter": "I",
+      "key": "Irritability",
+      "prompt": "How irritable is the condition?",
+      "options": [
+        "Low",
+        "Moderate",
+        "High"
+      ],
+      "correct": "Low",
+      "why": "Symptoms occur with high-intensity activity (overhead work) and ease rapidly  upon resting: Low Irritability"
+    },
+    {
+      "letter": "N",
+      "key": "Nature",
+      "prompt": "What is the nature of the pain?",
+      "options": [
+        "Nociceptive",
+        "Neuropathic",
+        "Nociplastic"
+      ],
+      "correct": "Nociceptive",
+      "why": "Localized tendon-region pain, a painful arc, tenderness, weakness with pain, and positive impingement-related tests fit a mechanical nociceptive presentation. She reports no burning, tingling, or numbness to suggest neuropathic pain."
+    },
+    {
+      "letter": "S",
+      "key": "Stability",
+      "prompt": "How is the condition progressing?",
+      "options": [
+        "Improving",
+        "Same",
+        "Worsening"
+      ],
+      "correct": "Same",
+      "why": "Melissa reports no clear improvement or decline over recent weeks, and work continues to reproduce the same limitation. This supports a stable-but-persistent classification of Same."
+    },
+    {
+      "letter": "S",
+      "key": "Stage",
+      "prompt": "What stage is the condition?",
+      "options": [
+        "Acute (1–14 days)",
+        "Subacute (2–6 wks)",
+        "Chronic (>6 wks)"
+      ],
+      "correct": "Chronic (>6 wks)",
+      "why": "Symptoms have been present for about three months, which is beyond six weeks. The condition is therefore chronic even though symptoms still fluctuate with activity."
+    }
   ],
-
-  interventions: {
-    prompt: "Given her status today — moderate severity/irritability, chronic stage, and unchanged function with overhead work — select the interventions that are appropriate for this visit.",
-    items: [
-      { label:"Progressive rotator cuff loading (pain-monitored), including ER and scaption as tolerated", verdict:"perform",
-        why:"This directly addresses supraspinatus and cuff capacity deficits and aligns with chronic tendinopathy management when symptoms are monitored." },
-      { label:"Scapular stabilization and neuromuscular re-education to reduce excessive elevation during abduction", verdict:"perform",
-        why:"Targeting scapular motor control addresses the observed dyskinesis and can improve movement efficiency during overhead tasks." },
-      { label:"Manual therapy: GH posterior glide mobilization and soft tissue work for pec minor/supraspinatus region", verdict:"perform",
-        why:"This matches exam findings of posterior glide hypomobility and soft tissue restriction/tenderness, and can support improved mechanics." },
-      { label:"Functional overhead reaching retraining with graded exposure", verdict:"perform",
-        why:"Task-specific progression is needed for return to pain-free work duties involving repetitive reaching." },
-      { label:"Ultrasound as adjunct for tendon irritability while active program continues", verdict:"perform",
-        why:"It is included in the established plan and may help calm symptoms enough to maintain active loading and motor retraining." },
-      { label:"Heavy overhead loading to fatigue despite pain reproduction", verdict:"hold",
-        why:"Overloading into significant pain can worsen tendon irritability and movement compensation; load should be graded and symptom-guided." },
-      { label:"Complete rest from all shoulder movement for 2 weeks", verdict:"hold",
-        why:"Full immobilization is not indicated here and would likely reduce capacity; controlled, progressive loading is preferred." },
-      { label:"Document status and communicate lack of progress to supervising PT for possible plan progression/modification", verdict:"report",
-        why:"An unchanged 3-month presentation with ongoing occupational limits is clinically important and should be communicated for coordinated plan updates." }
+  "interventions": {
+    "prompt": "Choose only the interventions appropriate today for chronic nociceptive rotator cuff tendinopathy with high activity severity, moderate irritability, and unchanged symptoms.",
+    "items": [
+      {
+        "label": "Heavy empty-can strengthening to fatigue",
+        "verdict": "hold",
+        "why": "The supraspinatus is painful and 4−/5; heavy fatigue loading is not the appropriate starting dose."
+      },
+      {
+        "label": "Pectoralis minor mobility exercise",
+        "verdict": "perform",
+        "why": "Addressing the documented pec minor restriction may support improved scapular mechanics without loading the irritated tendon heavily."
+      },
+      {
+        "label": "Repeated resisted overhead abduction through 145°",
+        "verdict": "hold",
+        "why": "High-load repetition through the painful arc is likely to reproduce her 7/10 symptoms and exceed today's irritability."
+      },
+      {
+        "label": "Scapular motor-control training below the painful arc",
+        "verdict": "perform",
+        "why": "Her excessive scapular elevation makes neuromuscular retraining relevant and allows practice with less provocative arm elevation."
+      },
+      {
+        "label": "Low-grade GH posterior glide and soft-tissue treatment",
+        "verdict": "perform",
+        "why": "The posterior glide is hypomobile and the surrounding tissues are restricted; use symptom-guided grades rather than aggressive end-range force."
+      },
+      {
+        "label": "Full-duty overhead task simulation without modification",
+        "verdict": "hold",
+        "why": "Functional retraining should be graded only after symptoms and scapular control improve, not performed immediately at full work volume."
+      },
+      {
+        "label": "Pain-limited rotator cuff isometrics",
+        "verdict": "perform",
+        "why": "Isometrics can begin cuff loading without repeatedly entering the 7/10 painful arc; keep the response acceptable during and after treatment."
+      }
     ]
   },
-
-  expert: {
-    heading: "How the reasoning fits together",
-    paragraphs: [
-      "This case is chronic and load-sensitive, not acutely inflammatory from a single recent trauma. That means your session should emphasize <em>graded capacity building</em>, not either complete unloading or aggressive painful overload.",
-      "SINSS helps dose the visit: moderate severity/irritability supports active strengthening, motor control, and functional retraining with symptom monitoring. Pair this with targeted manual therapy for measured impairments, and communicate unchanged status so the supervising PT can refine progression if needed."
+  "expert": {
+    "heading": "Load the tendon without chasing the painful arc",
+    "paragraphs": [
+      "Melissa's three-month history makes the condition chronic, but duration alone does not justify aggressive loading. Her pain peaks at 7/10 overhead and repeated work provokes symptoms, so today's dose should stay below the painful arc and be judged by both the immediate response and how quickly symptoms settle afterward.",
+      "Prioritize rotator cuff capacity, scapular control, mobility impairments, and temporary task modification. Progress toward overhead strengthening and work simulation as pain response and movement quality improve; high-load empty-can work and unrestricted overhead repetition are poor choices today."
     ]
   }
-};
+};;
 /* =====================================================================
    ▲▲▲  CASE END — engine below; leave it alone.
    ===================================================================== */
-
 const PHASES = ["Plan of care","Interview","Classify (SINSS)","Interventions"];
 const $ = id => document.getElementById(id);
 let state;
-
 function boot(){
   const m = SINSS_CASE.meta;
   document.title = m.title;
@@ -342,11 +410,9 @@ function boot(){
   $("pt-name").textContent = m.patient.name;
   $("pt-sub").textContent = m.patient.subtitle;
 }
-
 function toIntro(){ show("intro"); scrollTop(); }
 function show(w){ ["intro","sim","debrief"].forEach(s => $(s).classList.toggle("hidden", s!==w)); }
 function scrollTop(){ window.scrollTo({top:0,behavior:"instant"}); }
-
 function startCase(){
   state = { phase:0, asked:[], findings:[], sinssPicks:{}, ivPicks:new Set() };
   show("sim");
@@ -354,7 +420,6 @@ function startCase(){
   renderPhase();
   scrollTop();
 }
-
 function renderRail(){
   $("rail").innerHTML = "";
   PHASES.forEach((p,i) => {
@@ -364,7 +429,6 @@ function renderRail(){
     $("rail").appendChild(d);
   });
 }
-
 function renderPhase(){
   renderRail();
   const s = $("scene");
@@ -373,7 +437,6 @@ function renderPhase(){
   if(state.phase===2) return renderSinss(s);
   if(state.phase===3) return renderInterventions(s);
 }
-
 function renderPOC(s){
   const p = SINSS_CASE.poc;
   const obj = p.objective.map(o=>`<li>${o}</li>`).join("");
@@ -395,11 +458,10 @@ function renderPOC(s){
     </div>
     <div class="start-row"><button class="btn" onclick="next()">Interview the patient →</button></div>`;
 }
-
 function renderInterview(s){
   s.innerHTML = `
     <div class="phase-tag">Phase 2 · Interview</div>
-    <div class="phase-title">Ask what you need to place her status</div>
+    <div class="phase-title">Ask what you need to place the patient’s status</div>
     <p class="phase-sub">Each question maps to part of the SINSS picture. Ask enough to classify all five — answers collect in the findings panel.</p>
     <div class="qgrid" id="qgrid"></div>
     <div class="start-row"><button class="btn" id="toClass" onclick="next()" ${state.asked.length? "":"disabled"}>Classify her status →</button></div>`;
@@ -419,7 +481,6 @@ function renderInterview(s){
     g.appendChild(b);
   });
 }
-
 function addFinding(dim, text){
   state.findings.push({dim, text});
   renderFindings();
@@ -435,7 +496,6 @@ function renderFindings(){
     ul.appendChild(li);
   });
 }
-
 function renderSinssRead(){
   const box = $("sinss-read");
   box.innerHTML = "";
@@ -447,11 +507,10 @@ function renderSinssRead(){
     box.appendChild(r);
   });
 }
-
 function renderSinss(s){
   s.innerHTML = `
     <div class="phase-tag">Phase 3 · Classify</div>
-    <div class="phase-title">Set her SINSS values</div>
+    <div class="phase-title">Set the patient’s SINSS values</div>
     <p class="phase-sub">Use the findings on the right. Pick once per row — you'll see whether it holds up and why.</p>
     <div id="sinssq"></div>
     <div class="start-row"><button class="btn" id="toIv" onclick="next()" disabled>Choose interventions →</button></div>`;
@@ -472,10 +531,9 @@ function renderSinss(s){
     });
   });
 }
-
 function pickSinss(idx, opt, btn){
   const d = SINSS_CASE.sinss[idx];
-  if(state.sinssPicks[d.key]) return; // lock first answer
+  if(state.sinssPicks[d.key]) return;
   state.sinssPicks[d.key] = opt;
   const correct = opt === d.correct;
   const opts = $(`opts-${idx}`).children;
@@ -491,7 +549,6 @@ function pickSinss(idx, opt, btn){
   renderSinssRead();
   if(Object.keys(state.sinssPicks).length === SINSS_CASE.sinss.length) $("toIv").disabled = false;
 }
-
 function renderInterventions(s){
   const iv = SINSS_CASE.interventions;
   s.innerHTML = `
@@ -507,65 +564,79 @@ function renderInterventions(s){
     row.innerHTML = `<div class="box">${state.ivPicks.has(i)?"✓":""}</div><div class="txt">${it.label}</div>`;
     row.onclick = () => {
       if(row.classList.contains("graded")) return;
-      if(state.ivPicks.has(i)){ state.ivPicks.delete(i); row.classList.remove("sel"); row.querySelector(".box").textContent=""; }
-      else { state.ivPicks.add(i); row.classList.add("sel"); row.querySelector(".box").textContent="✓"; }
+      if(state.ivPicks.has(i)){
+        state.ivPicks.delete(i);
+        row.classList.remove("sel");
+        row.querySelector(".box").textContent="";
+      } else {
+        state.ivPicks.add(i);
+        row.classList.add("sel");
+        row.querySelector(".box").textContent="✓";
+      }
     };
     list.appendChild(row);
   });
 }
-
 function scorePlan(){
   const iv = SINSS_CASE.interventions;
   const rows = $("ivlist").children;
   iv.items.forEach((it,i) => {
-    const shouldPick = it.verdict==="perform" || it.verdict==="report";
+    const shouldPick = it.verdict==="perform";
     const picked = state.ivPicks.has(i);
     const right = shouldPick === picked;
     const row = rows[i];
     row.classList.add("graded", right?"ok":"err");
-    const vlabel = it.verdict==="perform" ? "Appropriate today"
-      : it.verdict==="report" ? "Report before progressing"
+    const vlabel = it.verdict==="perform"
+      ? "Appropriate today"
       : "Hold for today";
     const tag = document.createElement("span");
     tag.className = "verdict";
     tag.style.color = right ? "var(--teal-deep)" : "var(--alert)";
     tag.textContent = (picked?"You selected · ":"You held · ") + vlabel;
     const fb = document.createElement("div");
-    fb.className = "fb"; fb.textContent = it.why;
-    row.appendChild(tag); row.appendChild(fb);
+    fb.className = "fb";
+    fb.textContent = it.why;
+    row.appendChild(tag);
+    row.appendChild(fb);
     row.onclick = null;
   });
   $("scoreBtn").textContent = "See debrief →";
   $("scoreBtn").onclick = toDebrief;
 }
-
-function next(){ state.phase++; renderPhase(); document.querySelector('.scene').scrollIntoView({behavior:'smooth',block:'start'}); }
-
-function toDebrief(){
-  const sinssCorrect = SINSS_CASE.sinss.filter(d => state.sinssPicks[d.key]===d.correct).length;
-  const iv = SINSS_CASE.interventions;
-  let ivCorrect = 0, reportItem = -1;
-  iv.items.forEach((it,i) => {
-    const shouldPick = it.verdict==="perform"||it.verdict==="report";
-    if(shouldPick === state.ivPicks.has(i)) ivCorrect++;
-    if(it.verdict==="report") reportItem = i;
-  });
-  const reported = reportItem>=0 && state.ivPicks.has(reportItem);
-  $("d-sinss").textContent = sinssCorrect + "/" + SINSS_CASE.sinss.length;
-  $("d-iv").textContent = ivCorrect + "/" + iv.items.length;
-  $("d-flag").textContent = reported ? "Yes" : "No";
-  const allSinss = sinssCorrect===SINSS_CASE.sinss.length;
-  $("d-title").textContent = (allSinss && ivCorrect===iv.items.length)
-    ? "You matched the treatment to the patient."
-    : (reported ? "Solid reasoning — a few calls to revisit." : "Good start — mind the status before you progress.");
-  $("e-head").textContent = SINSS_CASE.expert.heading;
-  const body = $("e-body"); body.innerHTML = "";
-  SINSS_CASE.expert.paragraphs.forEach(t => { const p=document.createElement("p"); p.innerHTML=t; body.appendChild(p); });
-  show("debrief"); scrollTop();
+function next(){
+  state.phase++;
+  renderPhase();
+  document.querySelector('.scene').scrollIntoView({behavior:'smooth',block:'start'});
 }
-
+function toDebrief(){
+  const sinssCorrect = SINSS_CASE.sinss.filter(
+    d => state.sinssPicks[d.key] === d.correct
+  ).length;
+  const iv = SINSS_CASE.interventions;
+  let ivCorrect = 0;
+  iv.items.forEach((it,i) => {
+    const shouldPick = it.verdict==="perform";
+    if(shouldPick === state.ivPicks.has(i)) ivCorrect++;
+  });
+  $("d-sinss").textContent = `${sinssCorrect}/${SINSS_CASE.sinss.length}`;
+  $("d-iv").textContent = `${ivCorrect}/${iv.items.length}`;
+  const allSinss = sinssCorrect === SINSS_CASE.sinss.length;
+  $("d-title").textContent =
+    (allSinss && ivCorrect===iv.items.length)
+      ? "You matched the treatment to the patient."
+      : "Good start — revisit the SINSS profile before you progress treatment.";
+  $("e-head").textContent = SINSS_CASE.expert.heading;
+  const body = $("e-body");
+  body.innerHTML = "";
+  SINSS_CASE.expert.paragraphs.forEach(t => {
+    const p = document.createElement("p");
+    p.innerHTML = t;
+    body.appendChild(p);
+  });
+  show("debrief");
+  scrollTop();
+}
 boot();
 </script>
 </body>
-  <!-- trigger branch pages deploy -->
 </html>
